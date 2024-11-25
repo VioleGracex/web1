@@ -30,7 +30,7 @@ export const NavBar = () => {
   }
 
   return (
-    <Router>
+    <div>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
@@ -40,8 +40,8 @@ export const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Главная</Nav.Link>
+            <Nav className="ms-auto navbar-links">
+              <Nav.Link href="/" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Главная</Nav.Link>
               <Nav.Link href="#services" className={activeLink === 'services' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('services')}>Услуги</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Проекты</Nav.Link>
               <Nav.Link href="#price-list" className={activeLink === 'price-list' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('price-list')}>Прайс-лист</Nav.Link>
@@ -71,6 +71,6 @@ export const NavBar = () => {
         </Container>
       </Navbar>
       <FloatingCatalogMenuColumn />
-    </Router>
+    </div>
   );
 }
