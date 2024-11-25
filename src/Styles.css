@@ -1,0 +1,73 @@
+/******************* services ****************/
+.service {
+  padding: 60px 0;
+  background-color: #FFFFFF; /* Dark background for sections */
+}
+
+.service h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #121212;
+  text-align: center;
+}
+
+.service p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #121212;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.service-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.service-item h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #121212;
+  margin-top: 20px;
+}
+
+.service-item p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #121212;
+}
+
+.service-icon {
+  font-size: 150px;  /* Increase icon size */
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+.service-icon:hover {
+  transform: scale(1.2);
+}
+
+.background-image-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.owl-carousel .item {
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .service h2 {
+    font-size: 28px;
+  }
+
+  .service-item h5 {
+    font-size: 18px;
+  }
+}

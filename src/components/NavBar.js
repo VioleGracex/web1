@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { FaMobileAlt, FaSms, FaCalculator } from 'react-icons/fa'; // Import icons
 import logo from '../assets/img/logo 25@2x.png';
 import navIcon1 from "../assets/img/vk white.png";
 import navIcon2 from "../assets/img/telegram white.png";
 import navIcon3 from "../assets/img/whatsapp white.png";
-import FloatingCatalogMenu from "./FloatingCatalogMenu";
 import FloatingCatalogMenuColumn from "./FloatingCatalogMenuColumn";
 import { HashLink } from 'react-router-hash-link';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export const NavBar = () => {
-
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,9 +21,7 @@ export const NavBar = () => {
         setScrolled(false);
       }
     }
-
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
 
@@ -50,6 +45,17 @@ export const NavBar = () => {
               <Nav.Link href="#services" className={activeLink === 'services' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('services')}>Услуги</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Проекты</Nav.Link>
               <Nav.Link href="#price-list" className={activeLink === 'price-list' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('price-list')}>Прайс-лист</Nav.Link>
+              
+              {/* New icons */}
+              <Nav.Link href="/mobile-page" className="navbar-link">
+                <FaMobileAlt size={24} />
+              </Nav.Link>
+              <Nav.Link href="/sms-page" className="navbar-link">
+                <FaSms size={24} />
+              </Nav.Link>
+              <Nav.Link href="/PolygraphyCalculator" className="navbar-link">
+                <FaCalculator size={24} />
+              </Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
@@ -66,5 +72,5 @@ export const NavBar = () => {
       </Navbar>
       <FloatingCatalogMenuColumn />
     </Router>
-  )
+  );
 }

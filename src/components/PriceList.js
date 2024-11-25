@@ -4,7 +4,8 @@ export const PriceList = () => {
   return (
     <section id="price-list" className="price-list">
       <div className="container">
-        <h2>Тарифы</h2>
+      <h2 style={{ color: '#121212' }}>Тарифы</h2>
+
         <p>Выберите подходящий для вас тариф</p>
 
             {/* Design Services Table */}
@@ -64,7 +65,7 @@ export const PriceList = () => {
               </tr>
             </tbody>
           </table>
-          <p>Стоимость указана за одну сторону. 2я сторона макета оплачивается по двойному тарифу.</p>
+          <p style={{ marginTop: '10px' }}>Стоимость указана за одну сторону. 2я сторона макета оплачивается по двойному тарифу.</p>
           <p>В тарифе VIP в зависимости от требований, сложностей разработки дизайна, цена может увеличиваться.</p>
         </div>
 
@@ -143,7 +144,7 @@ export const PriceList = () => {
               </tr>
             </tbody>
           </table>
-          <p>Дополнительные услуги, добавление элементов и правки оплачиваются отдельно.</p>
+          <p style={{ marginTop: '10px' }}>Дополнительные услуги, добавление элементов и правки оплачиваются отдельно.</p>
         </div>
         {/* Printing Services */}
         <div className="printing-services">

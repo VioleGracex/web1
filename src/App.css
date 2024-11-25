@@ -675,7 +675,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* Price list */
 .price-list {
   padding: 20px;
-  background-color: #2a2a2a; /* Dark background for the whole section */
+  background-color: #ffffff; /* Dark background for the whole section */
   border-radius: 12px; /* Curvy section background */
 }
 
@@ -756,7 +756,7 @@ p {
 .design-details h3,
 .printing-services h3,
 .photo-printing h3 {
-  color: #ffffff; /* White text for section headings */
+  color: #121212; /* White text for section headings */
 }
 
 
