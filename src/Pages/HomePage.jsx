@@ -9,7 +9,7 @@ import { Projects } from "../components/Projects";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import { PriceList } from '../components/PriceList';
-
+import FloatingCatalogMenuBar from '../components/floatingCatalogBar';
 const HomePage = () => {
     return (
         <>
@@ -20,6 +20,7 @@ const HomePage = () => {
       <Projects />
       <Contact />
       <Footer />
+      <FloatingCatalogMenuBar/>
         </>
     )
 }

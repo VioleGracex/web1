@@ -2,150 +2,152 @@
 .polygraphy-calculator {
     background-color: white;
     color: black;
-    padding: 140px;
-    margin: 120px;
+    padding: 60px;
+    margin: 40px auto;
+    margin-top: 200px;
     font-family: Arial, sans-serif;
-  }
-  
-  h1 {
+    max-width: 1440px;  /* Set a maximum width */
+    max-height: 1020px;  /* Set a maximum height */
+    overflow: auto;  /* Add scrollbars if content exceeds */
+    box-sizing: border-box;
+}
+
+h1 {
     font-size: 2em;
     margin-bottom: 20px;
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 1.5em;
     margin-top: 20px;
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: 1.2em;
     margin-top: 10px;
-  }
-  
-  .field-container {
-    margin-bottom: 15px;
-  }
-  
+}
 
-  
-  select {
+.field-container {
+    margin-bottom: 15px;
+}
+
+select {
     padding: 8px;
     margin-top: 5px;
     font-size: 1em;
     width: 20%;
     justify-content: center;
     box-sizing: border-box;
-  }
-  
-  svg {
+}
+
+svg {
     margin-top: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  input[type="number"] {
+}
+
+input[type="number"] {
     width: 50px;
-  }
-  
-  .checkbox-container {
- 
+}
+
+.checkbox-container {
     justify-content: center;
-   
     gap: -40px; /* Adjust the space between the label and checkbox */
-  }
-  
+}
 
-
-  /* Basic reset for margin and padding */
+/* Basic reset for margin and padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Container styling */
-  .polygraphy-calculator {
+}
+
+/* Container styling */
+.polygraphy-calculator {
     padding: 20px;
     font-family: Arial, sans-serif;
-  }
-  
-  .field-container {
+}
+
+.field-container {
     size: 15px;
     margin-bottom: 15px;
-  }
-  
-  .layout-container {
+}
+
+.layout-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-  }
-  
-  .layout-input {
+}
+
+.layout-input {
     width: 10px;
     margin: 5px;
     padding: 5px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-align: center;
-  }
-  
-  input:disabled {
-    background-color: #e0e0e0;
-  }
-  
-  .checkbox-container {
-    margin-bottom: 20px;
-  }
-  
-  /* Add styling for the layout visualization */
-  svg {
-    margin-top: 20px;
-  }
-  
+}
 
-  .polygraphy-calculator {
+input:disabled {
+    background-color: #e0e0e0;
+}
+
+.checkbox-container {
+    margin-bottom: 20px;
+}
+
+/* Add styling for the layout visualization */
+svg {
+    margin-top: 20px;
+}
+
+/* Make sure layout visuals also respect max width/height constraints */
+.layout-container svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.polygraphy-calculator {
     display: flex;
     flex-direction: column;
     padding: 20px;
-  }
-  
-  .fields-row {
+}
+
+.fields-row {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-  }
-  
-  .fields-left, .fields-right {
+}
+
+.fields-left, .fields-right {
     flex: 1;
-  }
-  
-  .field-container {
+}
+
+.field-container {
     margin-bottom: 10px;
-  }
-  
-  .layout-container {
+}
+
+.layout-container {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
-  }
-  
-  .layout-input {
+}
+
+.layout-input {
     width: 60px;
     padding: 5px;
-  }
-  
-  .checkbox-container {
+}
+
+.checkbox-container {
     display: flex;
     align-items: center;
-  }
-  
-  svg {
+}
+
+svg {
     margin-top: 0;
-  display: block;
-  }
-  
-  
+    display: block;
+}

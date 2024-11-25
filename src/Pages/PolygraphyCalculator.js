@@ -42,6 +42,26 @@ export default function PolygraphyCalculator() {
     return Math.max(10, layoutSize.width / 5); // Adjust 5 to scale the text size appropriately
   };
 
+  const handleLayoutChange = (e, dimension) => {
+    const value = parseInt(e.target.value);
+    if (!isNaN(value) && value >= 0) {
+      setLayoutSize((prevSize) => ({
+        ...prevSize,
+        [dimension]: value,
+      }));
+    } else {
+      setLayoutSize((prevSize) => ({
+        ...prevSize,
+        [dimension]: 0, // Set to 0 if invalid or empty input
+      }));
+    }
+  };
+
+  const handleSelectChange = (e, setter, defaultSize = { width: 210, height: 297 }) => {
+    const selectedSize = JSON.parse(e.target.value);
+    setter(selectedSize || defaultSize);
+  };
+
   return (
     <div className="polygraphy-calculator">
       <h1>Polygraphy Calculator</h1>
@@ -56,25 +76,21 @@ export default function PolygraphyCalculator() {
           </p>
 
           <h3>Single Layout Visualization</h3>
-          <div className=" checkbox-container">
-          
-              
-            <label>  <input
+          <div className="checkbox-container">
+            <label>
+              <input
                 type="checkbox"
                 checked={isCustomSize}
                 onChange={() => setIsCustomSize(!isCustomSize)}
               />
-               Use Custom Size </label>
+              Use Custom Size
+            </label>
           </div>
           <div className="layout-container">
             <input
               type="number"
               value={layoutSize.width}
-              onChange={(e) => {
-                if (isCustomSize) {
-                  setLayoutSize({ ...layoutSize, width: parseInt(e.target.value) });
-                }
-              }}
+              onChange={(e) => handleLayoutChange(e, 'width')}
               readOnly={!isCustomSize}
               className="layout-input"
             />
@@ -104,16 +120,10 @@ export default function PolygraphyCalculator() {
             <input
               type="number"
               value={layoutSize.height}
-              onChange={(e) => {
-                if (isCustomSize) {
-                  setLayoutSize({ ...layoutSize, height: parseInt(e.target.value) });
-                }
-              }}
+              onChange={(e) => handleLayoutChange(e, 'height')}
               readOnly={!isCustomSize}
               className="layout-input"
             />
-
-            
           </div>
 
           <h3>2D Layout Visualization on Paper</h3>
@@ -152,9 +162,7 @@ export default function PolygraphyCalculator() {
           <div className="field-container">
             <label>Select Layout Size:</label>
             <select
-              onChange={(e) =>
-                setLayoutSize(JSON.parse(e.target.value))
-              }
+              onChange={(e) => handleSelectChange(e, setLayoutSize)}
             >
               {standardSizes.map((size) => (
                 <option key={size.label} value={JSON.stringify(size.value)}>
@@ -167,7 +175,7 @@ export default function PolygraphyCalculator() {
           <div className="field-container">
             <label>Select Paper Size:</label>
             <select
-              onChange={(e) => setPaperSize(JSON.parse(e.target.value))}
+              onChange={(e) => handleSelectChange(e, setPaperSize)}
             >
               {standardSizes.map((size) => (
                 <option key={size.label} value={JSON.stringify(size.value)}>
@@ -194,7 +202,6 @@ export default function PolygraphyCalculator() {
         </div>
 
       </div>
-      
     </div>
   );
 }

@@ -1,0 +1,45 @@
+.floating-catalog-bar {
+    background-color: #333; /* Dark background */
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .menu-item-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px; /* Reduced spacing */
+    text-align: center;
+  }
+  
+  .menu-item-bar a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-family: 'Roboto', sans-serif; /* Example font */
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure text and icon are centered */
+    justify-content: center;
+    transition: color 0.3s;
+  }
+  
+  .menu-item-bar .icon {
+    font-size: 55px;
+    margin-bottom: 20px; /* Reduced gap between icon and text */
+    transition: transform 0.3s;
+  }
+  
+  .menu-item-bar a:hover, .menu-item-bar a:hover .icon {
+    color: #ffcc00; /* Highlight color */
+    cursor: pointer;
+  }
+  
+  .menu-item-bar:hover .icon {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+  
