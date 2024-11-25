@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-
+import ProductList from './Pages/Product-list';
 import PolygraphyCalculator from './Pages/PolygraphyCalculator';
 import HomePage from './Pages/HomePage';
 import { NavBar } from './components/NavBar'; // Import NavBar
@@ -16,6 +16,7 @@ root.render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/PolygraphyCalculator" element={<PolygraphyCalculator />} />
+        <Route path="/Search" element={<ProductList />} />
       </Routes>
     </Router>
   </React.StrictMode>
