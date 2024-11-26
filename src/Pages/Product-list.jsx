@@ -48,11 +48,12 @@ export default function ProductList() {
         {/* Size Slider */}
         <input
           type="range"
-          min="150"
+          min="200"
           max="400"
           value={cardSize}
           onChange={(e) => setCardSize(e.target.value)}
           className="w-32"
+          disabled={viewType === "list"} // Disable the slider in list view
         />
       </div>
 
@@ -78,38 +79,52 @@ export default function ProductList() {
 
       {/* Products Section */}
       <div
-        className={`products-section mt-8 grid gap-4 ${
-          viewType === "grid"
-            ? `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`
-            : "block"
-        }`}
+        className={`products-section mt-8 ${viewType === "grid" ? "grid gap-4" : "block"}`}
         style={{
-          gridTemplateColumns: viewType === "grid" ? `repeat(auto-fill, minmax(${cardSize}px, 1fr))` : "none", // Dynamic grid columns based on card size
+          // Set gridTemplateColumns to limit the number of columns to 4
+          gridTemplateColumns: viewType === "grid" && cardSize >= 150
+            ? `repeat(auto-fit, minmax(${cardSize}px, 1fr))` // auto-fit with min/max card size
+            : "none", // Switch to list view if card size is too small
+          maxWidth: "100%", // Ensure it doesn't overflow
+          overflow: "hidden", // Prevent overflow at smaller sizes
         }}
       >
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="product-card p-4 bg-white rounded-lg shadow-md"
+            className={`product-card p-4 bg-white rounded-lg shadow-md ${viewType === "list" ? "flex items-center space-x-4" : ""}`}
             style={{
-              width: `${cardSize}px`,
-              height: "auto", // Automatically adjust height based on content, but will not exceed maxHeight
-              maxWidth: `${cardSize}px`, // Ensure max width
-              maxHeight: "500px", // Set a reasonable max height to prevent infinite growth
+              // Apply different min/max widths for grid and list views
+              width: viewType === "list" ? "100%" : `${cardSize}px`, // Full width for list view, fixed width for grid
+              minWidth: viewType === "grid" ? "200px" : "none", // Min width for grid items
+              maxWidth: viewType === "grid" ? "400px" : "none", // Max width for grid items
             }}
           >
-            <img
-              alt={product.imageAlt}
-              src={product.imageSrc}
-              className="w-full rounded-lg bg-gray-200 object-cover"
-              style={{
-                height: `${cardSize - 60}px`, // Adjust image height relative to card size
-                maxHeight: "400px", // Max height for the image
-                objectFit: "cover", // Ensure the image covers the area properly
-              }}
-            />
-            <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-            <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+            {viewType === "list" ? (
+              <img
+                alt={product.imageAlt}
+                src={product.imageSrc}
+                className="w-16 h-16 rounded-full object-cover"
+                style={{
+                  flexShrink: 0,
+                }}
+              />
+            ) : (
+              <img
+                alt={product.imageAlt}
+                src={product.imageSrc}
+                className="w-full rounded-lg bg-gray-200 object-cover"
+                style={{
+                  height: `${cardSize - 60}px`, // Adjust image height relative to card size
+                  maxHeight: "400px", // Max height for the image
+                  objectFit: "cover", // Ensure the image covers the area properly
+                }}
+              />
+            )}
+            <div className="product-text">
+              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+            </div>
           </div>
         ))}
       </div>
