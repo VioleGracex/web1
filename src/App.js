@@ -19,7 +19,6 @@ function App() {
       <PriceList/>
       <Projects />
       <Contact />
-      <Footer />
     </div>
   );
 }
