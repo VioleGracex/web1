@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Import Link for navigation
 import { FaTh, FaBars } from "react-icons/fa"; // For view icons (install react-icons if not done)
 import { categories } from "../data/categories";
 import { products } from "../data/products";
-
+import '../Styles.css';
 export default function ProductList() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [viewType, setViewType] = useState("grid"); // 'grid' or 'list'
@@ -22,7 +22,7 @@ export default function ProductList() {
     : products;
 
   return (
-    <div className="main-container flex p-4">
+    <div className="main-container flex p-4 bg-soft-white min-h-screen">
       {/* Categories Column */}
       <div className="categories-container w-64 mr-8">
         <div className="categories-column p-4 bg-gray-100 rounded-lg">

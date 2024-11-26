@@ -7,6 +7,7 @@ import ProductList from './Pages/Product-list';
 import PolygraphyCalculator from './Pages/PolygraphyCalculator';
 import HomePage from './Pages/HomePage';
 import { NavBar } from './components/NavBar'; // Import NavBar
+import { Footer } from './components/Footer';
 import ProductPage from './Pages/ProductPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
         <Route path="/Shop" element={<ProductList />} />
         <Route path="/product/:productId" element={<ProductPage />} /> {/* Corrected route for product details page */}
       </Routes>
+      <Footer />
     </Router>
   </React.StrictMode>
 );

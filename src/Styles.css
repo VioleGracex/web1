@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.bg-soft-white {
+  background-color: #f8f8f8; /* A soft, off-white color */
+}
 /******************* services ****************/
 .service {
   padding: 60px 0;

@@ -35,8 +35,8 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #121212 !important;
-  color: #fff !important;
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
   font-family: 'Centra', sans-serif !important;
 }
 
@@ -99,11 +99,12 @@ nav.navbar {
   top: 0;
   z-index: 9988;
   transition: 0.32s ease-in-out;
+  /* background-color: #ffcc00; */
 }
 
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #ffffff;
+  background-color: #ffcc00;
 }
 
 /* Flexbox to manage the distance between the logo and the navigation links */
