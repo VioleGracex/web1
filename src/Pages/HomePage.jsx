@@ -17,7 +17,6 @@ const HomePage = () => {
       <PriceList />
       <Projects />
       <Contact />
-      <Footer />
       <FloatingCatalogMenuBar/>
         </>
     )
