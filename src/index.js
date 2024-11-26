@@ -16,7 +16,7 @@ root.render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/PolygraphyCalculator" element={<PolygraphyCalculator />} />
-        <Route path="/Search" element={<ProductList />} />
+        <Route path="/Shop" element={<ProductList />} />
       </Routes>
     </Router>
   </React.StrictMode>

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /******************* services ****************/
 .service {
   padding: 60px 0;
@@ -70,4 +73,64 @@
   .service-item h5 {
     font-size: 18px;
   }
+}
+
+/******************* shop product list ****************/
+/* Container for the whole layout */
+.main-container {
+  display: flex;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 180px 40px 40px;  /* Top margin to accommodate navbar */
+  border-radius: 12px;
+  color: #121212;
+}
+
+/* Categories Section */
+.categories-column {
+  flex: 1;
+  background-color: #f0f0f0; /* Light grey background */
+  border-radius: 12px;
+  padding: 20px;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+/* Category Item Style */
+.categories-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.categories-column li {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #ffffff; /* White background for each item */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.categories-column li:hover {
+  background-color: #e0e0e0; /* Slightly darker grey on hover */
+}
+
+/* Products Section */
+.products-section {
+  flex: 3; /* Takes up more space */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
 }
