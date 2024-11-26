@@ -3,7 +3,7 @@ export const products = [
       id: 1,
       name: "Визитки",
       category: "Визитки",
-      price: "150 руб.",
+      price: "150",
       imageSrc: "/images/business-cards.jpg",
       imageAlt: "Визитки"
     },
