@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /************ Custom Font ************/
 @font-face {
 	font-family: Centra;
@@ -99,7 +103,7 @@ nav.navbar {
 
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: #ffffff;
 }
 
 /* Flexbox to manage the distance between the logo and the navigation links */
@@ -116,11 +120,12 @@ nav.navbar a.navbar-brand {
 /* Adjust the navbar link styles */
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #fff !important;
+  color: #121212 !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
-  font-size: 18px;
+  font-size: 22px;
   opacity: 0.75;
+  font-weight: bold;
 }
 
 /* Hover and active link styles */
@@ -143,14 +148,14 @@ span.navbar-text {
 .social-icon a {
   width: 42px;
   height: 42px;
-  background: rgba(217, 217, 217, 0.1);
+  background: rgba(248, 246, 246, 0.1);
   display: inline-flex;
   border-radius: 50%;
   margin-right: 6px;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .social-icon a::before {
@@ -158,10 +163,11 @@ span.navbar-text {
   width: 42px;
   height: 42px;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #ffcc00;
   border-radius: 50%;
   transform: scale(0);
   transition: 0.3s ease-in-out;
+ 
 }
 
 .social-icon a:hover::before {
@@ -181,8 +187,8 @@ span.navbar-text {
 /* Adjust button styling inside navbar-text */
 .navbar-text button {
   font-weight: 700;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #121212;
+  border: 1px solid #121212;
   padding: 18px 34px;
   font-size: 18px;
   margin-left: 18px;
@@ -200,7 +206,7 @@ span.navbar-text {
   width: 0%;
   height: 100%;
   position: absolute;
-  background-color: #fff;
+  background-color: #ffcc00;
   left: 0;
   top: 0;
   z-index: -1;
@@ -230,13 +236,13 @@ nav.navbar .navbar-toggler-icon {
   height: 17px;
   background-image: none;
   position: relative;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #1b1b1b;
   transition: all 300ms linear;
   top: -2px;
 }
 
 nav.navbar .navbar-toggler-icon:focus {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #333232;
 }
 
 nav.navbar .navbar-toggler-icon:after,
@@ -244,7 +250,7 @@ nav.navbar .navbar-toggler-icon:before {
   width: 24px;
   position: absolute;
   height: 2px;
-  background-color: #fff;
+  background-color: #202020;
   top: 0;
   left: 0;
   content: '';
@@ -289,7 +295,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg3.png');
+  background-image: url('./assets/img/banner4.png');
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -311,16 +317,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1;
   margin-bottom: 20px;
   display: block;
+  color: black;
 }
 .banner p {
-  color: #B8B8B8;
+  color: #0f0f0f;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
   width: 96%;
 }
 .banner button {
-  color: #fff;
+  color: #000000;
   font-weight: 700;
   font-size: 20px;
   margin-top: 60px;
@@ -352,48 +359,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     }
 }
 .txt-rotate > .wrap {
-  border-right: 0.08em solid #666;
+  border-right: 0.08em solid #070707;
 }
 
-/************ Skills Css ************/
-.skill {
-  padding: 0 0 50px 0;
-  position: relative;
-}
-.skill-bx {
-  background: #151515;
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px;
-}
-.skill h2 {
-	font-size: 45px;
-	font-weight: 700;
-}
-.skill p {
-    color: #B8B8B8;
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
-}
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-}
-.skill-slider .item img {
-  width: 50%;
-  margin: 0 auto 15px auto;
-}
-.background-image-left {
-  top: 28%;
-  position: absolute;
-  bottom: 0;
-  width: 40%;
-  z-index: -4;
-}
 
 /************ Projects Css ************/
 .project {
@@ -602,7 +570,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-repeat: no-repeat;
 }
 .newsletter-bx {
-  background: #FFFFFF;
+  background: #ededed;
   border-radius: 55px;
   color: #121212;
   padding: 85px 125px;
@@ -670,56 +638,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
-}
-
-/* services*/
-
-.service-image {
-  width: 100%; /* Make sure the images fill their container */
-  height: 200px; /* Set a fixed height (adjust as needed) */
-  object-fit: cover; /* Ensures that the images are cropped to fill the space */
-  object-position: center; /* Keeps the focal point centered in the image */
-  border-radius: 8px; /* Optional, for rounded corners */
-}
-
-/* Ensure text appears under the image */
-.service-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-
-.service-item h5 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #ffffff; /* Change to match your design */
-}
-
-/* Optional: Adjust carousel's container size for consistency */
-.service-slider .item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Optional: style for carousel text */
-.service-bx p {
-  font-size: 1rem;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #ffffff;
-  margin-top: 20px;
-}
-
-/* Optional: background image positioning */
-.background-image-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
 }
 
 /************************Price list ********************/

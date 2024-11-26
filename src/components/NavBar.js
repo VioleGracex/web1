@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { FaMobileAlt, FaSms, FaCalculator } from 'react-icons/fa'; // Import icons
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import logo from '../assets/img/logo 25@2x.png';
 import navIcon1 from "../assets/img/vk white.png";
 import navIcon2 from "../assets/img/telegram white.png";
 import navIcon3 from "../assets/img/whatsapp white.png";
-import FloatingCatalogMenuColumn from "./FloatingCatalogMenuColumn";
 import { HashLink } from 'react-router-hash-link';
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -47,7 +46,7 @@ export const NavBar = () => {
               <Nav.Link href="#price-list" className={activeLink === 'price-list' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('price-list')}>Прайс-лист</Nav.Link>
               
               {/* New icons */}
-              <Nav.Link href="/mobile-page" className="navbar-link">
+              {/* <Nav.Link href="/mobile-page" className="navbar-link">
                 <FaMobileAlt size={24} />
               </Nav.Link>
               <Nav.Link href="/sms-page" className="navbar-link">
@@ -55,7 +54,11 @@ export const NavBar = () => {
               </Nav.Link>
               <Nav.Link href="/PolygraphyCalculator" className="navbar-link">
                 <FaCalculator size={24} />
-              </Nav.Link>
+              </Nav.Link> */}
+
+              <Nav.Link href="/Search" className="navbar-link">
+              <FaMagnifyingGlass size={24} />
+            </Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
@@ -63,14 +66,11 @@ export const NavBar = () => {
                 <a href="#"><img src={navIcon2} alt="" /></a>
                 <a href="#"><img src={navIcon3} alt="" /></a>
               </div>
-              <HashLink to='#connect'>
-                <button className="vvd"><span>связаться с нами</span></button>
-              </HashLink>
+              
             </span>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <FloatingCatalogMenuColumn />
     </div>
   );
 }

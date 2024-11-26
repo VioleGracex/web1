@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /******************* services ****************/
 .service {
   padding: 60px 0;
-  background-color: #FFFFFF; /* Dark background for sections */
+  background-color: #ededed; /* Dark background for sections */
 }
 
 .service h2 {

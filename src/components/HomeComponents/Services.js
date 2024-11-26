@@ -1,10 +1,7 @@
 import { FaPrint, FaImages, FaSign, FaEnvelope, FaPaintBrush, FaFileAlt, FaCamera, FaGift } from 'react-icons/fa';  // Importing icons
-import businessCardImage from "../assets/img/business-card.png";
-import brochureImage from "../assets/img/Tri Fold Showcase Mockup.png";
-import stickerImage from "../assets/img/sticker-1.png";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import colorSharp from "../assets/img/color-sharp.png";
+import colorSharp from "../../assets/img/color-sharp.png";
 
 export const Services = () => {
   const responsive = {

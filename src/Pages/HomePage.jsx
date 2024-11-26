@@ -2,18 +2,16 @@
 import '../App.css';
 import '../Styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "../components/NavBar";
-import { Banner } from "../components/Banner";
-import { Services } from "../components/Services";
-import { Projects } from "../components/Projects";
-import { Contact } from "../components/Contact";
+import { Banner } from '../components/HomeComponents/Banner';
+import { Services } from "../components/HomeComponents/Services";
+import { Projects } from "../components/Old/Projects";
+import { Contact } from "../components/HomeComponents/Contact";
 import { Footer } from "../components/Footer";
-import { PriceList } from '../components/PriceList';
-import FloatingCatalogMenuBar from '../components/floatingCatalogBar';
+import { PriceList } from '../components/HomeComponents/PriceList';
+import FloatingCatalogMenuBar from '../components/HomeComponents/floatingCatalogBar';
 const HomePage = () => {
     return (
         <>
-         
       <Banner />
       <Services />
       <PriceList />

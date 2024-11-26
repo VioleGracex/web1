@@ -7,11 +7,16 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@headlessui/react": "^2.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
+    "browserify-zlib": "^0.2.0",
+    "clsx": "^2.1.1",
+    "next": "^15.0.3",
+    "rc-slider": "^11.1.7",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-bootstrap-icons": "^1.11.4",
@@ -23,7 +28,16 @@
     "react-router-dom": "^7.0.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
+    "stream-browserify": "^3.0.0",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,10 +11,7 @@ import './floatingCatalogBar.css';
 
 const FloatingCatalogMenuBar = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
-
-  const toggleSubMenu = (index) => {
-    setOpenSubMenu(openSubMenu === index ? null : index);
-  };
+  const carouselRef = useRef(null); // Ref to access carousel methods
 
   const menuItems = [
     { title: "Новый Год", link: "#novyj-god", icon: faGift },
@@ -37,18 +34,37 @@ const FloatingCatalogMenuBar = () => {
     mobile: { breakpoint: { max: 464, min: 0 }, items: 2 },
   };
 
+  const handleWheel = (e) => {
+    // Prevent the default scroll behavior
+    e.preventDefault();
+    e.stopPropagation(); // Stop the event from bubbling up
+    // Check if the wheel scroll is up or down and move carousel accordingly
+    if (e.deltaY > 0) {
+      carouselRef.current.next(); // Scroll down (next item)
+    } else {
+      carouselRef.current.previous(); // Scroll up (previous item)
+    }
+  };
+
   return (
-    <div className="floating-catalog-bar">
-        <Carousel responsive={responsive} infinite={true} draggable={true} showDots={false}>
-            {menuItems.map((item, index) => (
-                <div key={index} className="menu-item-bar">
-                <a href={item.link}>
-                    <FontAwesomeIcon icon={item.icon} className="icon" />
-                    <span>{item.title}</span>
-                </a>
-                </div>
-            ))}
-        </Carousel>
+    <div className="floating-catalog-bar" onWheel={handleWheel}>
+      <Carousel
+        ref={carouselRef} // Attach ref to the carousel
+        responsive={responsive}
+        infinite={true}
+        draggable={true}
+        swipeable={true}
+        showDots={false}
+      >
+        {menuItems.map((item, index) => (
+          <div key={index} className="menu-item-bar">
+            <a href={item.link}>
+              <FontAwesomeIcon icon={item.icon} className="icon" />
+              <span>{item.title}</span>
+            </a>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
