@@ -19,6 +19,58 @@ export default function ProductList() {
     "Рекламные конструкции",
     "Знаки безопасности",
     "Готовые подарки",
+    "Бизнес полиграфия",
+    "Бумажные пакеты",
+    "Картонная упаковка",
+    "Брошюры и каталоги",
+    "Рекламные технологии",
+    "Печать на одежде",
+    "Рекламная полиграфия",
+    "Листовки",
+    "Флаеры",
+    "Буклеты",
+    "Бирки",
+    "Наклейки и этикетки",
+    "Хенгеры",
+    "Рекламные магниты",
+    "Магнитный планер",
+    "Воблеры",
+    "Полимерные наклейки",
+    "Стикерпаки",
+    "Шоколад с логотипом",
+    "Визитки",
+    "Простые открытки",
+    "Фирменные папки",
+    "Фирменные бланки",
+    "Блокноты",
+    "Дипломы и грамоты",
+    "Карманные календари",
+    "Квартальные календари",
+    "Настенные календари",
+    "Настольные календари",
+    "Маленькие пакеты",
+    "Средние пакеты",
+    "Большие пакеты",
+    "Винные пакеты",
+    "Упаковка для аромасвечей",
+    "Упаковка для парфюмерии",
+    "Упаковка для шоколада",
+    "Упаковка для чая и кофе",
+    "Упаковка для косметики",
+    "Упаковка для канцтоваров",
+    "Упаковка для медицинских масок",
+    "Упаковка для антисептика",
+    "Упаковка для зубной пасты и щеток",
+    "Упаковка для игральных карт",
+    "Упаковка для дисконтных карт",
+    "Брошюры на скобе",
+    "Каталоги на пружине",
+    "Каталоги на винтах",
+    "Интерьерная печать на бумаге",
+    "Интерьерная печать на плёнке",
+    "Интерьерная печать на холсте",
+    "Печать изготовление картин на холсте",
+    "Изготовление стендов Roll Up",
   ];
 
   const toggleCategory = (category) => {
@@ -33,101 +85,97 @@ export default function ProductList() {
     ? products.filter((product) => selectedCategories.includes(product.category))
     : products;
 
-  return (
-    <div className="main-container relative p-4">
-      {/* View and Slider Controls */}
-      <div className="absolute top-4 right-4 flex items-center space-x-4">
-        {/* View Icons */}
-        <button onClick={() => setViewType("grid")}>
-          <FaTh size={24} className={`cursor-pointer ${viewType === "grid" ? "text-blue-500" : "text-gray-500"}`} />
-        </button>
-        <button onClick={() => setViewType("list")}>
-          <FaBars size={24} className={`cursor-pointer ${viewType === "list" ? "text-blue-500" : "text-gray-500"}`} />
-        </button>
-
-        {/* Size Slider */}
-        <input
-          type="range"
-          min="200"
-          max="400"
-          value={cardSize}
-          onChange={(e) => setCardSize(e.target.value)}
-          className="w-32"
-          disabled={viewType === "list"} // Disable the slider in list view
-        />
-      </div>
-
-      {/* Categories Column */}
-      <div className="categories-column p-4 bg-gray-100 rounded-lg">
-        <h3 className="font-semibold mb-2">Категории</h3>
-        <ul>
-          {categories.map((category, index) => (
-            <li key={index}>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(category)}
-                  onChange={() => toggleCategory(category)}
-                  className="mr-2"
-                />
-                {category}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Products Section */}
-      <div
-        className={`products-section mt-8 ${viewType === "grid" ? "grid gap-4" : "block"}`}
-        style={{
-          // Set gridTemplateColumns to limit the number of columns to 4
-          gridTemplateColumns: viewType === "grid" && cardSize >= 150
-            ? `repeat(auto-fit, minmax(${cardSize}px, 1fr))` // auto-fit with min/max card size
-            : "none", // Switch to list view if card size is too small
-          maxWidth: "100%", // Ensure it doesn't overflow
-          overflow: "hidden", // Prevent overflow at smaller sizes
-        }}
-      >
-        {filteredProducts.map((product) => (
+    return (
+      <div className="main-container flex p-4">
+        {/* Categories Column */}
+        <div className="categories-container w-64 mr-8"> {/* Fixed width container for categories */}
+          <div className="categories-column p-4 bg-gray-100 rounded-lg">
+            <h3 className="font-semibold mb-2">Категории</h3>
+            <ul>
+              {categories.map((category, index) => (
+                <li key={index}>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => toggleCategory(category)}
+                      className="mr-2"
+                    />
+                    {category}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+  
+        {/* Products Section */}
+        <div className="products-container flex-1 flex flex-col"> {/* Takes up the remaining space */}
+          {/* View Type Toggle and Slider on Right */}
+          <div className="view-toggle mb-4 flex justify-end items-center">
+            <button
+              onClick={() => setViewType(viewType === "grid" ? "list" : "grid")}
+              className="p-2 rounded-md bg-gray-200 hover:bg-gray-300 mr-4"
+            >
+              {viewType === "grid" ? <FaBars /> : <FaTh />}
+            </button>
+  
+            {/* Slider for Card Size */}
+            <label className="mr-4">Размер карточек</label>
+            <input
+              type="range"
+              min="150"
+              max="300"
+              value={cardSize}
+              onChange={(e) => setCardSize(e.target.value)}
+              className="slider"
+            />
+          </div>
+  
+          {/* Products Display */}
           <div
-            key={product.id}
-            className={`product-card p-4 bg-white rounded-lg shadow-md ${viewType === "list" ? "flex items-center space-x-4" : ""}`}
+            className={`products-section ${viewType === "grid" ? "grid gap-4" : "block"}`}
             style={{
-              // Apply different min/max widths for grid and list views
-              width: viewType === "list" ? "100%" : `${cardSize}px`, // Full width for list view, fixed width for grid
-              minWidth: viewType === "grid" ? "200px" : "none", // Min width for grid items
-              maxWidth: viewType === "grid" ? "400px" : "none", // Max width for grid items
+              gridTemplateColumns:
+                viewType === "grid" && cardSize >= 150
+                  ? `repeat(auto-fit, minmax(${cardSize}px, 1fr))`
+                  : "none",
+              gridAutoRows: "minmax(250px, auto)", // Consistent row height
+              justifyItems: "center",
+              rowGap: "16px",
             }}
           >
-            {viewType === "list" ? (
-              <img
-                alt={product.imageAlt}
-                src={product.imageSrc}
-                className="w-16 h-16 rounded-full object-cover"
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className={`product-card p-4 bg-white rounded-lg shadow-md ${viewType === "list" ? "flex items-center space-x-4" : ""}`}
                 style={{
-                  flexShrink: 0,
+                  width: viewType === "list" ? "100%" : `${cardSize}px`,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  boxSizing: "border-box",
                 }}
-              />
-            ) : (
-              <img
-                alt={product.imageAlt}
-                src={product.imageSrc}
-                className="w-full rounded-lg bg-gray-200 object-cover"
-                style={{
-                  height: `${cardSize - 60}px`, // Adjust image height relative to card size
-                  maxHeight: "400px", // Max height for the image
-                  objectFit: "cover", // Ensure the image covers the area properly
-                }}
-              />
-            )}
-            <div className="product-text">
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-            </div>
+              >
+                <img
+                  alt={product.imageAlt}
+                  src={product.imageSrc}
+                  className={`rounded-lg ${viewType === "list" ? "w-16 h-16" : "w-full"}`}
+                  style={{
+                    height: `${cardSize - 60}px`,
+                    maxHeight: "250px",
+                    objectFit: "cover",
+                    aspectRatio: "4 / 3",
+                  }}
+                />
+                <div className="product-text mt-4 text-center">
+                  <h3 className="text-sm text-gray-700">{product.name}</h3>
+                  <p className="text-lg font-medium text-gray-900">{product.price}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
