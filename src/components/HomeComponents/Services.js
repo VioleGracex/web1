@@ -1,102 +1,45 @@
-import { FaPrint, FaImages, FaSign, FaEnvelope, FaPaintBrush, FaFileAlt, FaCamera, FaGift } from 'react-icons/fa';  // Importing icons
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import { FaPrint, FaImages, FaSign, FaEnvelope, FaPaintBrush, FaFileAlt, FaCamera, FaGift } from 'react-icons/fa'; // Importing icons
+import { Link } from 'react-router-dom'; // For navigation to other pages
 import colorSharp from "../../assets/img/color-sharp.png";
 
 export const Services = () => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
+  // Define an array of services
+  const services = [
+    { icon: <FaPrint />, title: 'Копировальные работы', description: 'Ч/б и полноцветное копирование, масштабирование, ризография, копирование на различных видах бумаг.', link: '/copywork' },
+    { icon: <FaSign />, title: 'Таблички и инфодоски', description: 'Изготовление различных видов табличек, указателей, информационных стендов.', link: '/signboards' },
+    { icon: <FaPaintBrush />, title: 'Дизайн и Верстка', description: 'Разработка дизайн-макетов, верстка, редактирование, цветокоррекция, ретушь, разработка фирменного стиля.', link: '/design' },
+    { icon: <FaFileAlt />, title: 'Полиграфия', description: 'Цветная и ч/б печать, копировальные работы, изготовление флаеров, буклетов, широкоформатная печать.', link: '/printing' },
+    { icon: <FaCamera />, title: 'Печать фотографий', description: 'Печать фотографий стандартных размеров, печать широкоформатных (больших) фотографий.', link: '/photoprint' },
+    { icon: <FaGift />, title: 'Изготовление сувениров', description: 'Печать на футболках, кружках. Изготовление пазлов, ковриков для мыши, брелков, магнитов.', link: '/gifts' }
+  ];
 
   return (
-    <section className="service" id="services">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="service-bx wow zoomIn">
-              <h2>Наши Услуги</h2>
-              <p>
-                Мы предлагаем широкий спектр услуг в области полиграфии. Создание бизнес карт, буклетов, стикеров и многое другое.<br />
-                Мы воплощаем ваши идеи в идеальном дизайне.
-              </p>
-              <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme service-slider">
-                <div className="item">
-                  <div className="service-item">
-                    <FaPrint className="service-icon" />
-                    <h5>Копировальные работы</h5>
-                    <p>Ч/б и полноцветное копирование, масштабирование, ризография, копирование на различных видах бумаг.</p>
-                  </div>
+    <section className="service py-16" id="services" >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold">Наши Услуги</h2>
+          <p className="text-lg mt-4">
+            Мы предлагаем широкий спектр услуг в области полиграфии. Создание бизнес карт, буклетов, стикеров и многое другое. <br />
+            Мы воплощаем ваши идеи в идеальном дизайне.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Link to={service.link} key={index} className="no-underline">
+              <div className="service-item bg-white shadow-lg p-6 rounded-lg hover:scale-105 transform transition-all duration-300">
+                <div className="service-icon text-4xl mb-4 text-blue-600">
+                  {service.icon}
                 </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaImages className="service-icon" />
-                    <h5>Широкоформатная печать</h5>
-                    <p>Печать изображений большого формата. Изготовление баннеров, плакатов, наклеек и больших фотографий.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaSign className="service-icon" />
-                    <h5>Таблички и инфодоски</h5>
-                    <p>Изготовление различных видов табличек, указателей, информационных стендов.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaEnvelope className="service-icon" />
-                    <h5>Интернет услуги</h5>
-                    <p>Скачивание файлов с электронной почты, поиск изображений в интернете, отправка электронной почты.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaPaintBrush className="service-icon" />
-                    <h5>Дизайн и Верстка</h5>
-                    <p>Разработка дизайн-макетов, верстка, редактирование, цветокоррекция, ретушь, разработка фирменного стиля.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaFileAlt className="service-icon" />
-                    <h5>Полиграфия</h5>
-                    <p>Цветная и ч/б печать, копировальные работы, изготовление флаеров, буклетов, широкоформатная печать.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaCamera className="service-icon" />
-                    <h5>Печать фотографий</h5>
-                    <p>Печать фотографий стандартных размеров, печать широкоформатных (больших) фотографий.</p>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="service-item">
-                    <FaGift className="service-icon" />
-                    <h5>Изготовление сувениров</h5>
-                    <p>Печать на футболках, кружках. Изготовление пазлов, ковриков для мыши, брелков, магнитов.</p>
-                  </div>
-                </div>
-              </Carousel>
-            </div>
-          </div>
+                <h5 className="text-xl font-bold text-black mb-2">{service.title}</h5>
+                <p className="text-sm text-gray-600">{service.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img className="background-image-left absolute top-0 left-0 w-full h-full object-cover opacity-30" src={colorSharp} alt="Background" />
     </section>
   );
-}
+};

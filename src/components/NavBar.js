@@ -23,14 +23,14 @@ export const NavBar = () => {
 
   return (
     <nav className={`fixed w-full top-0 z-50  transition-all duration-300 ${scrolled ? "shadow-md bg-white" : ""}`}>
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 ">
         {/* Logo */}
         <a href="/" className="w-24">
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-8 items-center">
+        <ul className="hidden md:flex space-x-8 items-center ">
           {[
             { id: 'home', label: 'Главная' },
             { id: 'services', label: 'Услуги' },
@@ -40,7 +40,7 @@ export const NavBar = () => {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`text-lg font-bold text-black transition-opacity ${
+                className={`text-lg font-bold text-black transition-opacity no-underline ${
                   activeLink === link.id ? "opacity-100" : "opacity-75"
                 } hover:opacity-100`}
                 onClick={() => onUpdateActiveLink(link.id)}
