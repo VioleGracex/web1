@@ -207,7 +207,7 @@ export const PriceList2 = () => {
 
 
 
-export const PriceList3 = () => {
+export const PriceCalculator = () => {
   const [isColor, setIsColor] = useState(false);
   const [size, setSize] = useState('A4');
   const [amount, setAmount] = useState(1);

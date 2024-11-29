@@ -7,7 +7,7 @@ import { Services } from "../components/HomeComponents/Services";
 import { Projects } from "../components/Old/Projects";
 import { Contact } from "../components/HomeComponents/Contact";
 import { Footer } from "../components/Footer";
-import { PriceList, PriceList2, PriceList3 } from '../components/HomeComponents/PriceList';
+import { PriceList, PriceList2, PriceCalculator } from '../components/HomeComponents/PriceList';
 import FloatingCatalogMenuBar from '../components/HomeComponents/floatingCatalogBar';
 const HomePage = () => {
     return (
@@ -16,7 +16,7 @@ const HomePage = () => {
       <Services />
       <PriceList />
       <PriceList2/>
-      <PriceList3 />
+      <PriceCalculator />
       <Projects />
       <Contact />
       {/* <FloatingCatalogMenuBar/> */}
