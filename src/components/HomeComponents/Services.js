@@ -28,12 +28,12 @@ export const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Link to={service.link} key={index} className="no-underline">
-              <div className="service-item bg-white shadow-lg p-6 rounded-lg hover:scale-105 transform transition-all duration-300">
-                <div className="service-icon text-4xl mb-4 text-blue-600">
+              <div className="service-item bg-white shadow-lg p-6 rounded-lg hover:scale-105 transform transition-all duration-300 flex flex-col h-full">
+                <div className="service-icon text-8xl mb-2 text-blue-600 flex-shrink-0">
                   {service.icon}
                 </div>
-                <h5 className="text-xl font-bold text-black mb-2">{service.title}</h5>
-                <p className="text-sm text-gray-600">{service.description}</p>
+                <h5 className="text-xl font-bold text-black mb-2 flex-shrink-0">{service.title}</h5>
+                <p className="text-sm text-gray-600 flex-grow">{service.description}</p>
               </div>
             </Link>
           ))}
