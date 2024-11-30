@@ -16,6 +16,7 @@
     "browserify-zlib": "^0.2.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "ionicons": "^7.4.0",
     "next": "^15.0.3",
     "rc-slider": "^11.1.7",
     "react": "^18.3.1",

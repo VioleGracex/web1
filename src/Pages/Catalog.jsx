@@ -4,7 +4,8 @@ import { FaTh, FaBars } from "react-icons/fa"; // For view icons (install react-
 import { categories } from "../data/categories";
 import { products } from "../data/products";
 import '../Styles.css';
-export default function ProductList() {
+
+export default function Catalog() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [viewType, setViewType] = useState("grid"); // 'grid' or 'list'
   const [cardSize, setCardSize] = useState(200); // Initial card size in pixels

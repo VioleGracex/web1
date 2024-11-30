@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaMagnifyingGlass, FaBars, FaXmark } from "react-icons/fa6";
 import logo from '../assets/img/logo 25@2x.png';
-import navIcon1 from "../assets/img/vk white.png";
-import navIcon2 from "../assets/img/telegram white.png";
-import navIcon3 from "../assets/img/whatsapp white.png";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
@@ -22,24 +19,24 @@ export const NavBar = () => {
   const onUpdateActiveLink = (value) => setActiveLink(value);
 
   return (
-    <nav className={`fixed w-full top-0 z-50  transition-all duration-300 ${scrolled ? "shadow-md bg-white" : ""}`}>
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 ">
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? "shadow-md bg-white" : ""}`}>
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <a href="/" className="w-24">
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-8 items-center ">
+        <ul className="hidden md:flex space-x-8 items-center">
           {[
-            { id: 'home', label: 'Главная' },
-            { id: 'services', label: 'Услуги' },
-            { id: 'catalog', label: 'Каталог' },
-            { id: 'price-list', label: 'Прайс-лист' }
+             { id: '/', label: 'Главная' },
+             { id: '/#services', label: 'Услуги' },
+             { id: '/#price', label: 'Прайс-лист' }, 
+             { id: '/catalog', label: 'Каталог' }, // Updated link for price section
           ].map((link) => (
             <li key={link.id}>
               <a
-                href={`#${link.id}`}
+                href={link.id}
                 className={`text-lg font-bold text-black transition-opacity no-underline ${
                   activeLink === link.id ? "opacity-100" : "opacity-75"
                 } hover:opacity-100`}
@@ -79,14 +76,14 @@ export const NavBar = () => {
       {menuOpen && (
         <ul className="md:hidden flex flex-col items-center bg-white space-y-4 py-4">
           {[
-            { id: 'home', label: 'Главная' },
-            { id: 'services', label: 'Услуги' },
-            { id: 'catalog', label: 'Каталог' },
-            { id: 'price-list', label: 'Прайс-лист' }
+            { id: '/', label: 'Главная' },
+            { id: '/#services', label: 'Услуги' },
+            { id: '/#price', label: 'Прайс-лист' }, 
+            { id: '/catalog', label: 'Каталог' },
           ].map((link) => (
             <li key={link.id}>
               <a
-                href={`#${link.id}`}
+                href={link.id}
                 className="text-lg font-bold text-black block"
                 onClick={() => { setMenuOpen(false); onUpdateActiveLink(link.id); }}
               >

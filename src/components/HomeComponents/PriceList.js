@@ -1,54 +1,69 @@
 import { React ,useState } from "react";
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import AccordionHeader from "../Elements/AccordionHeader";
 
-const commonTableCellStyles = "px-4 py-3 text-white text-center border border-gray-200";
+
 const commonTableHeaderStyles = "px-4 py-3 bg-yellow-500 text-black text-center border border-gray-200";
-
-
-export const PriceListDesign = () => {
+const tableCellClasses = "text-white px-4 py-3 border-2 border-[#f1c1d1] bg-[#282432] shadow-lg text-center";
+export const PriceList = () => {
   return (
-    <section id="price-list" className="p-8 bg-white rounded-lg shadow-md">
-      <div className="container mx-auto px-4 text-gray-800">
+    <section id="price" className="price-section bg-white py-10">
+      <h2 className="text-3xl font-bold text-center mb-8">Наши Цены</h2>
+      <div >
+        <PriceListDesign />
+        <PriceListCopy />
+        <PriceListPhoto />
+        <PriceCalculator />
+      </div>
+    </section>
+  );
+}
+
+
+const PriceListDesign = () => {
+  return (
+    <section className="p-8 bg-white rounded-lg shadow-md">
+      <div className="container  mx-auto px-4 text-gray-800">
         {/* Use AccordionHeader component */}
         <AccordionHeader title="Тарифы на дизайн услуг">
           {/* Description */}
-          <p className="text-center my-4">Выберите подходящий для вас тариф:</p>
+          <p className="text-center my-3">Выберите подходящий для вас тариф:</p>
 
           {/* Design Services Table */}
-          <div className="p-4 bg-white rounded-lg">
-          <table className="min-w-full bg-white border border-gray-300 shadow-lg">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-2">Услуга</th>
-                  <th className="px-4 py-2">Стандарт</th>
-                  <th className="px-4 py-2">Бизнес <span className="text-blue-800">*ХИТ*</span></th>
-                  <th className="px-4 py-2">❇️<span className="text-green-700">VIP</span>❇️</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { service: 'Визитка (1 сторона)', standard: '300 ₽', business: '450 ₽', vip: '750 ₽' },
-                  { service: 'Флаер (1 сторона)', standard: '400 ₽', business: '600 ₽', vip: '1000 ₽' },
-                  { service: 'Листовка (1 сторона)', standard: '450 ₽', business: '750 ₽', vip: '1350 ₽' },
-                  { service: 'Буклет', standard: '900 ₽', business: '1600 ₽', vip: '2600 ₽' },
-                  { service: 'Наклейка', standard: 'от 200 ₽', business: 'от 400 ₽', vip: 'от 600 ₽' },
-                  { service: 'Табличка', standard: '450 ₽', business: '700 ₽', vip: 'от 1000 ₽' },
-                  { service: 'Баннер', standard: '300 ₽', business: '600 ₽', vip: 'от 1500 ₽' }
-                ].map((item, index) => (
-                  <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-4 py-2 border">{item.service}</td>
-                    <td className="px-4 py-2 border">{item.standard}</td>
-                    <td className="px-4 py-2 border">{item.business}</td>
-                    <td className="px-4 py-2 border">{item.vip}</td>
+          <div className="p-4 py-4 bg-white overflow-x-auto rounded-lg shadow-sm">
+            <div className="overflow-x-auto rounded-lg border border-gray-300">
+              <table className="w-full min-w-[600px] border-collapse">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className={commonTableHeaderStyles}>Услуга</th>
+                    <th className={commonTableHeaderStyles}>Стандарт</th>
+                    <th className={commonTableHeaderStyles}>Бизнес <span className="text-blue-800">*ХИТ*</span></th>
+                    <th className={commonTableHeaderStyles}>❇️<span className="text-green-700">VIP</span>❇️</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {[
+                    { service: 'Визитка (1 сторона)', standard: '300 ₽', business: '450 ₽', vip: '750 ₽' },
+                    { service: 'Флаер (1 сторона)', standard: '400 ₽', business: '600 ₽', vip: '1000 ₽' },
+                    { service: 'Листовка (1 сторона)', standard: '450 ₽', business: '750 ₽', vip: '1350 ₽' },
+                    { service: 'Буклет', standard: '900 ₽', business: '1600 ₽', vip: '2600 ₽' },
+                    { service: 'Наклейка', standard: 'от 200 ₽', business: 'от 400 ₽', vip: 'от 600 ₽' },
+                    { service: 'Табличка', standard: '450 ₽', business: '700 ₽', vip: 'от 1000 ₽' },
+                    { service: 'Баннер', standard: '300 ₽', business: '600 ₽', vip: 'от 1500 ₽' }
+                  ].map((item, index) => (
+                    <tr key={index} className="hover:bg-gray-50">
+                      <td className={tableCellClasses}>{item.service}</td>
+                      <td className={tableCellClasses}>{item.standard}</td>
+                      <td className={tableCellClasses}>{item.business}</td>
+                      <td className={tableCellClasses}>{item.vip}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           {/* Additional Info */}
-          <p className="text-sm text-gray-600 mt-4">
+          <p className="text-center text-[black] mt-5">
             <strong>Важно:</strong> Стоимость указана за одну сторону. 2-я сторона макета оплачивается по двойному тарифу.
             <br />
             В тарифе VIP цена может увеличиваться в зависимости от требований и сложности разработки дизайна.
@@ -60,8 +75,8 @@ export const PriceListDesign = () => {
 };
 
 
-export const PriceListCopy = () => {
-  const [isExpanded, setIsExpanded] = useState(false); // State for accordion toggle
+
+const PriceListCopy = () => {
 
   const printServices = [
     {
@@ -92,40 +107,40 @@ export const PriceListCopy = () => {
   ];
 
   return (
-    <section id="price-list" className="p-8 bg-white rounded-lg shadow-md">
-      <div className="container mx-auto px-4  text-gray-800">
+    <section className="p-8 bg-white rounded-lg shadow-md">
+      <div className="container mx-auto px-4 text-gray-800">
       
       <AccordionHeader title= "Копировальные услуги">
         
           {/* Printing Services Table */}
-          <div className="printing-services mb-10 p-6 rounded-lg shadow-lg">
+          <div className="printing-services mb-10 p-6 py-2 rounded-lg shadow-sm">
             <h3 className="text-center text-2xl mb-4 text-gray-900">Печать</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto border-separate rounded-lg overflow-hidden shadow-lg">
+            <div className="overflow-x-auto rounded-lg border border-gray-300"> 
+              <table className="w-full min-w-[600px] border-collapse">
                 <thead>
                   <tr>
-                    <th className="commonTableHeaderStyles">Формат</th>
-                    <th className="commonTableHeaderStyles">Тип/Кол-во</th>
-                    <th className="commonTableHeaderStyles">От 1</th>
-                    <th className="commonTableHeaderStyles">От 2</th>
-                    <th className="commonTableHeaderStyles">От 10</th>
-                    <th className="commonTableHeaderStyles">От 50</th>
-                    <th className="commonTableHeaderStyles">От 100</th>
-                    <th className="commonTableHeaderStyles">От 200</th>
+                    <th className={commonTableHeaderStyles}>Формат</th>
+                    <th className={commonTableHeaderStyles}>Тип/Кол-во</th>
+                    <th className={commonTableHeaderStyles}>От 1</th>
+                    <th className={commonTableHeaderStyles}>От 2</th>
+                    <th className={commonTableHeaderStyles}>От 10</th>
+                    <th className={commonTableHeaderStyles}>От 50</th>
+                    <th className={commonTableHeaderStyles}>От 100</th>
+                    <th className={commonTableHeaderStyles}>От 200</th>
                   </tr>
                 </thead>
                 <tbody>
                   {printServices.map((service) =>
                     service.services.map((row, index) => (
-                      <tr key={`${service.format}-${index}`} className="hover:bg-gray-50">
+                      <tr key={`${service.format}-${index}`} className={tableCellClasses}>
                         {index === 0 && (
-                          <td rowSpan={service.services.length} className="px-4 py-2 border text-center">
+                          <td rowSpan={service.services.length} className={tableCellClasses}>
                             {service.format}
                           </td>
                         )}
                         <td className="px-4 py-2 border">{row.type}</td>
                         {row.prices.map((price, priceIndex) => (
-                          <td key={priceIndex} className="px-4 py-2 border">
+                          <td key={priceIndex} className={tableCellClasses}>
                             {price}
                           </td>
                         ))}
@@ -138,27 +153,27 @@ export const PriceListCopy = () => {
           </div>
 
           {/* A4 and A3 Services Table */}
-          <div className="additional-services mb-10 p-6 rounded-lg shadow-lg">
+          <div className="additional-services mb-5 p-6 py-4 rounded-lg shadow-sm">
             <h3 className="text-center text-2xl mb-4 text-gray-900">Печать и Сканирование (A4 и A3)</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto border-separate rounded-lg overflow-hidden shadow-lg">
+            <div className="overflow-x-auto rounded-lg border border-gray-300"> 
+              <table className="w-full min-w-[600px] border-collapse">
                 <thead>
                   <tr>
-                    <th className="commonTableHeaderStyles">Услуга</th>
-                    <th className="commonTableHeaderStyles">A4 (ч/б)</th>
-                    <th className="commonTableHeaderStyles">A4 (цветная)</th>
-                    <th className="commonTableHeaderStyles">A3 (ч/б)</th>
-                    <th className="commonTableHeaderStyles">A3 (цветная)</th>
-                    <th className="commonTableHeaderStyles">Сканирование (300 dpi)</th>
-                    <th className="commonTableHeaderStyles">Сканирование (600 dpi)</th>
+                    <th className={commonTableHeaderStyles}>Услуга</th>
+                    <th className={commonTableHeaderStyles}>A4 (ч/б)</th>
+                    <th className={commonTableHeaderStyles}>A4 (цветная)</th>
+                    <th className={commonTableHeaderStyles}>A3 (ч/б)</th>
+                    <th className={commonTableHeaderStyles}>A3 (цветная)</th>
+                    <th className={commonTableHeaderStyles}>Сканирование (300 dpi)</th>
+                    <th className={commonTableHeaderStyles}>Сканирование (600 dpi)</th>
                   </tr>
                 </thead>
                 <tbody>
                   {additionalServices.map((row, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
+                    <tr key={index} className={tableCellClasses}>
                       <td className="px-4 py-2 border">{row.service}</td>
                       {row.prices.map((price, priceIndex) => (
-                        <td key={priceIndex} className="px-4 py-2 border">
+                        <td key={priceIndex} className={tableCellClasses}>
                           {price}
                         </td>
                       ))}
@@ -170,7 +185,7 @@ export const PriceListCopy = () => {
           </div>
 
           {/* Additional Info */}
-          <div className="text-gray-700 text-sm mt-4">
+          <div className="text-center text-[black] mt-5">
             <p>* при заливке Ч/Б счет идет по тарифу x2</p>
             <p>* Цена за ксерокопирование включает стоимость размещения документа, его сканирования и печати.</p>
             <p>* Каждое размещение документа считается как одна копия, дополнительные копии оплачиваются по цене печати.</p>
@@ -181,7 +196,8 @@ export const PriceListCopy = () => {
     </section>
   );
 };
-export const PriceListPhoto = () => {
+
+const PriceListPhoto = () => {
 
   // Data for the tables
   const expressPrintServices = [
@@ -217,11 +233,11 @@ export const PriceListPhoto = () => {
   ];
 
   return (
-    <section id="price-list-photo" className="p-8 bg-white rounded-lg">
+    <section className="p-8 bg-white rounded-lg">
       <div className="container mx-auto px-4 text-gray-800">
           <AccordionHeader title="Фотоуслуги оперативная печать">
-              <div className="p-4">
-                <table className="w-full table-auto border-separate rounded-lg shadow-lg">
+          <div className="mt-4 overflow-x-auto rounded-lg border border-gray-300"> 
+              <table className="w-full min-w-[600px] border-collapse">
                   <thead>
                     <tr>
                       <th className={commonTableHeaderStyles}>Услуга</th>
@@ -232,11 +248,11 @@ export const PriceListPhoto = () => {
                   </thead>
                   <tbody>
                     {expressPrintServices.map((service, index) => (
-                      <tr key={index} className="hover:bg-gray-700 hover:text-yellow-500">
-                        <td className={commonTableCellStyles}>{service.service}</td>
-                        <td className={commonTableCellStyles}>{service.price1}</td>
-                        <td className={commonTableCellStyles}>{service.price10}</td>
-                        <td className={commonTableCellStyles}>{service.price50}</td>
+                      <tr key={index} >
+                        <td className={tableCellClasses}>{service.service}</td>
+                        <td className={tableCellClasses}>{service.price1}</td>
+                        <td className={tableCellClasses}>{service.price10}</td>
+                        <td className={tableCellClasses}>{service.price50}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -250,7 +266,7 @@ export const PriceListPhoto = () => {
 
 
 
-export const PriceCalculator = () => {
+const PriceCalculator = () => {
   const [isColor, setIsColor] = useState(false);
   const [size, setSize] = useState('A4');
   const [amount, setAmount] = useState(1);
@@ -296,7 +312,7 @@ export const PriceCalculator = () => {
   };
 
   return (
-    <section id="price-list" className="p-8 bg-white rounded-lg">
+    <section  className="p-8 bg-white rounded-lg">
       <div className="container mx-auto max-w-screen-xl">
         {/* Tabs */}
         <div className="flex justify-center mb-6">
