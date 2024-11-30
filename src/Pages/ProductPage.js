@@ -1,28 +1,42 @@
-import { useState } from "react";
-import { products } from "../data/products";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { products } from "../data/products"; // Ensure the path is correct
+
 export default function ProductPage() {
+  const { id } = useParams(); // Extract the product ID from the URL
+  
+  // Convert the ID to a number since the product IDs in the array are numbers
+  const productId = Number(id);
 
-    
-  const product = {
-    name: "Евробуклет",
-    description: "Глянцевая бумага, 115 г/м2",
-    price: 2835.47,
-    imageSrc: "/path/to/product-image.jpg",
-  };
+  // Find the product based on the product ID from the URL
+  const product = products.find((prod) => prod.id === productId);
 
-  // Move the useState hooks outside of any conditionals or early returns
-  const [quantity, setQuantity] = useState(50); // default quantity
-  const [totalPrice, setTotalPrice] = useState(product.price); // initial total price
+  // Default state initialization for quantity and total price
+  const [quantity, setQuantity] = useState(50); // Default quantity
+  const [totalPrice, setTotalPrice] = useState(product ? parseFloat(product.price) : 0); // Convert price to float for calculations
 
+  // Update total price when quantity or product changes
+  useEffect(() => {
+    if (product) {
+      setTotalPrice(quantity * parseFloat(product.price));
+    }
+  }, [quantity, product]);
+
+  // Handle quantity change
   const handleQuantityChange = (e) => {
     const newQuantity = Number(e.target.value);
     setQuantity(newQuantity);
-    setTotalPrice(newQuantity * product.price);
   };
 
+  // Handle adding the product to the cart
   const handleAddToCart = () => {
-    alert(`Added ${quantity} ${product.name} to cart`);
+    alert(`Добавлено ${quantity} ${product.name} в корзину`);
   };
+
+  // If the product is not found, show a "not found" message
+  if (!product) {
+    return <div>Продукт не найден</div>;
+  }
 
   return (
     <div className="product-page p-4">
@@ -34,7 +48,8 @@ export default function ProductPage() {
           className="w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="product-details w-2/3">
-          <p>{product.description}</p>
+          <p>{product.category}</p>
+          <p>{product.description}</p> {/* Assuming 'description' exists in your data */}
           <div className="quantity-selector mt-4">
             <label htmlFor="quantity" className="block font-semibold mb-2">
               Выберите тираж:
