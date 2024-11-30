@@ -24,7 +24,7 @@ export default function Catalog() {
     : products;
 
   return (
-    <div className="py-12 mt-20 catalog-container bg-soft-white min-h-screen flex flex-col p-4">
+    <div className="py-12 mt-36 catalog-container bg-soft-white min-h-screen flex flex-col p-4">
       {/* Filter Menu (Mobile) */}
       <div
         className={`filter-menu fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 p-4 z-20 ${isFilterOpen ? "block" : "hidden"}`}
